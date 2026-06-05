@@ -1929,6 +1929,7 @@ textarea {
 
   .hero,
   .subhero,
+  .solutions-hero,
   .contact-hero,
   .operations-section,
   .experience-section,
@@ -1944,6 +1945,11 @@ textarea {
 
   .flow-visual {
     transform: none;
+  }
+
+  .solutions-visual {
+    justify-self: center;
+    width: min(100%, 560px);
   }
 
   .steps-rail,
@@ -2071,6 +2077,14 @@ textarea {
   .hero .flow-visual {
     width: min(100%, 340px);
     margin-inline: auto;
+  }
+
+  .solutions-hero {
+    gap: 18px;
+  }
+
+  .solutions-visual {
+    width: min(100%, 360px);
   }
 
   .trust-strip {
