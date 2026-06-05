@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.env*.local
+.vercel/
+.next/
+node_modules/
+coverage/
+dist/
+data/*.jsonl
+tmp/
+*.tsbuildinfo
+*.log
+npm-debug.log*
