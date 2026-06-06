@@ -1929,13 +1929,16 @@ textarea {
 
   .hero,
   .subhero,
-  .solutions-hero,
   .contact-hero,
   .operations-section,
   .experience-section,
   .split-section,
   .channel-band,
   .cta-section {
+    grid-template-columns: 1fr;
+  }
+
+  .text-hero.solutions-hero {
     grid-template-columns: 1fr;
   }
 

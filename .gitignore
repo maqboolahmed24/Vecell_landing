@@ -11,3 +11,4 @@ tmp/
 *.tsbuildinfo
 *.log
 npm-debug.log*
+.vercel
