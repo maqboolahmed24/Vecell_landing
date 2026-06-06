@@ -10,24 +10,24 @@ const siteUrl = configuredSiteUrl() ?? fallbackLocalSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vecells | Governed primary-care demand platform',
-    template: '%s | Vecells'
+    default: 'Vecell | Governed primary-care demand platform',
+    template: '%s | Vecell'
   },
   description:
-    'Vecells unifies web, phone, and NHS App primary-care demand into one governed request flow with safety, triage, routing, operations, and assurance.',
+    'Vecell unifies web, phone, and NHS App primary-care demand into one governed request flow with safety, triage, routing, operations, and assurance.',
   openGraph: {
-    title: 'Vecells',
+    title: 'Vecell',
     description:
       'A governed primary-care demand platform for safer intake, routing, operations, and assurance.',
     url: '/',
-    siteName: 'Vecells',
+    siteName: 'Vecell',
     images: [{ url: socialImage, width: 1672, height: 941 }],
     locale: 'en_GB',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vecells',
+    title: 'Vecell',
     description:
       'A governed primary-care demand platform for safer intake, routing, operations, and assurance.',
     images: [socialImage]

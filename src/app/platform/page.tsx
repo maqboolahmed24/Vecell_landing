@@ -5,13 +5,13 @@ export const revalidate = 0;
 
 export const metadata = {
   title: 'Product',
-  description: 'Vecell product and operations assurance content now lives on the Product page.',
+  description: 'Platform content now lives inside the Vecell Product page.',
   robots: {
     index: false,
     follow: true
   }
 };
 
-export default function OperationsAssuranceRedirectPage() {
+export default function PlatformRedirectPage() {
   return <PlatformSectionRedirect />;
 }

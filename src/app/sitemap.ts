@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic';
 const routes = [
   '',
   '/product/how-it-works',
-  '/platform/operations-assurance',
   '/solutions',
   '/about',
   '/contact',

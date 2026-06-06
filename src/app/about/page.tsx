@@ -2,7 +2,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'About',
-  description: 'About Vecells and its primary-care demand platform.'
+  description: 'About Vecell and its primary-care demand platform.'
 };
 
 export default function AboutPage() {
@@ -10,10 +10,10 @@ export default function AboutPage() {
     <main>
       <section className="text-hero">
         <Breadcrumbs items={[{ label: 'About', href: '/about' }]} />
-        <h1>Vecells is built around governed primary-care demand.</h1>
+        <h1>Vecell is built around governed primary-care demand.</h1>
         <p>
           Primary care needs a front door that is simple for patients, calm for teams, and provable
-          for leaders. Vecells is built around one request lineage, one safety model, and one audit trail.
+          for leaders. Vecell is built around one request lineage, one safety model, and one audit trail.
         </p>
       </section>
       <section className="section">
@@ -37,9 +37,9 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="section legal-copy">
-        <h2>What Vecells is for</h2>
+        <h2>What Vecell is for</h2>
         <p>
-          Vecells is intended to help primary-care organisations capture demand, maintain context,
+          Vecell is intended to help primary-care organisations capture demand, maintain context,
           apply safety checks, route work to the correct endpoint, and preserve operational proof.
         </p>
         <p>

@@ -5,7 +5,7 @@ export function RequestPassport() {
   return (
     <div className="request-passport" role="group" aria-label="Example request passport">
       <div className="passport-spine">
-        <span>Vecells</span>
+        <span>Vecell</span>
         <strong>Request passport</strong>
         <small>Example lineage</small>
       </div>

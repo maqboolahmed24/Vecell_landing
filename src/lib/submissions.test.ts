@@ -29,7 +29,6 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  delete process.env.VECELLS_SUBMISSION_STORE_PATH;
   delete process.env.VECELL_SUBMISSION_STORE_PATH;
 });
 
@@ -61,27 +60,23 @@ describe('validateLead', () => {
 });
 
 describe('persistLead', () => {
-  it('prefers the current Vecells submission store path environment variable', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-env-store-'));
-    process.env.VECELLS_SUBMISSION_STORE_PATH = join(tempDir, 'preferred.jsonl');
-    process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'legacy.jsonl');
+  it('uses the configured Vecell submission store path environment variable', async () => {
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-env-store-'));
+    process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {
       const lead = validateLead(validLeadInput);
       const record = await persistLead(lead, 'contact', 'vitest');
-      const preferredStore = await readFile(process.env.VECELLS_SUBMISSION_STORE_PATH, 'utf8');
+      const configuredStore = await readFile(process.env.VECELL_SUBMISSION_STORE_PATH, 'utf8');
 
-      expect(preferredStore).toContain(record.id);
-      await expect(readFile(process.env.VECELL_SUBMISSION_STORE_PATH, 'utf8')).rejects.toMatchObject({
-        code: 'ENOENT'
-      });
+      expect(configuredStore).toContain(record.id);
     } finally {
       await rm(tempDir, { recursive: true, force: true });
     }
   });
 
   it('returns the original record for a repeated idempotency key', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-submissions-'));
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-submissions-'));
     process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {
@@ -97,15 +92,15 @@ describe('persistLead', () => {
   });
 
   it('deduplicates concurrent writes with the same idempotency key', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-concurrent-store-'));
-    process.env.VECELLS_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-concurrent-store-'));
+    process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {
       const lead = validateLead(validLeadInput);
       const records = await Promise.all(
         Array.from({ length: 8 }, () => persistLead(lead, 'contact', 'vitest'))
       );
-      const content = await readFile(process.env.VECELLS_SUBMISSION_STORE_PATH, 'utf8');
+      const content = await readFile(process.env.VECELL_SUBMISSION_STORE_PATH, 'utf8');
 
       expect(new Set(records.map((record) => record.id)).size).toBe(1);
       expect(content.trim().split('\n')).toHaveLength(1);
@@ -115,11 +110,11 @@ describe('persistLead', () => {
   });
 
   it('ignores malformed historical store lines when checking idempotency', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-corrupt-store-'));
-    process.env.VECELLS_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-corrupt-store-'));
+    process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {
-      await writeFile(process.env.VECELLS_SUBMISSION_STORE_PATH, '{not-json}\n', 'utf8');
+      await writeFile(process.env.VECELL_SUBMISSION_STORE_PATH, '{not-json}\n', 'utf8');
 
       const lead = validateLead(validLeadInput);
       const record = await persistLead(lead, 'contact', 'vitest');
@@ -134,7 +129,7 @@ describe('persistLead', () => {
 
 describe('assertSameOriginSubmission', () => {
   it('allows requests with no Origin header', () => {
-    const request = new Request('https://vecells.example/api/contact', {
+    const request = new Request('https://vecell.example/api/contact', {
       method: 'POST'
     });
 
@@ -142,7 +137,7 @@ describe('assertSameOriginSubmission', () => {
   });
 
   it('rejects cross-origin browser submissions', () => {
-    const request = new Request('https://vecells.example/api/contact', {
+    const request = new Request('https://vecell.example/api/contact', {
       method: 'POST',
       headers: {
         origin: 'https://attacker.example'
@@ -153,7 +148,7 @@ describe('assertSameOriginSubmission', () => {
   });
 
   it('rejects Fetch Metadata cross-site submissions without relying on Origin', () => {
-    const request = new Request('https://vecells.example/api/contact', {
+    const request = new Request('https://vecell.example/api/contact', {
       method: 'POST',
       headers: {
         'sec-fetch-site': 'cross-site'
@@ -194,11 +189,11 @@ describe('assertSubmissionAllowed', () => {
 
 describe('contact POST idempotency', () => {
   it('blocks cross-origin browser submissions before writing a lead', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-origin-route-'));
-    process.env.VECELLS_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-origin-route-'));
+    process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {
-      const response = await contactPost(new Request('https://vecells.example/api/contact', {
+      const response = await contactPost(new Request('https://vecell.example/api/contact', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -209,7 +204,7 @@ describe('contact POST idempotency', () => {
       }));
 
       expect(response.status).toBe(403);
-      await expect(readFile(process.env.VECELLS_SUBMISSION_STORE_PATH, 'utf8')).rejects.toMatchObject({
+      await expect(readFile(process.env.VECELL_SUBMISSION_STORE_PATH, 'utf8')).rejects.toMatchObject({
         code: 'ENOENT'
       });
     } finally {
@@ -218,7 +213,7 @@ describe('contact POST idempotency', () => {
   });
 
   it('returns the existing lead for duplicate retries without consuming the rate limit', async () => {
-    const tempDir = await mkdtemp(join(tmpdir(), 'vecells-contact-route-'));
+    const tempDir = await mkdtemp(join(tmpdir(), 'vecell-contact-route-'));
     process.env.VECELL_SUBMISSION_STORE_PATH = join(tempDir, 'submissions.jsonl');
 
     try {

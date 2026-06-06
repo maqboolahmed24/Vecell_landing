@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'Cookie Policy',
-  description: 'Vecells cookie policy.'
+  description: 'Vecell cookie policy.'
 };
 
 export default function CookiesPage() {
@@ -23,7 +23,7 @@ export default function CookiesPage() {
       <section>
         <h2>Cookies used by this website</h2>
         <p>
-          The Vecells public website does not set analytics, advertising, or personalisation cookies
+          The Vecell public website does not set analytics, advertising, or personalisation cookies
           by default. The website may process technical request information in server logs for
           security, availability, abuse prevention, and diagnostics.
         </p>
@@ -39,7 +39,7 @@ export default function CookiesPage() {
       <section>
         <h2>Optional cookies</h2>
         <p>
-          Vecells will not use optional analytics, advertising, or personalisation cookies unless
+          Vecell will not use optional analytics, advertising, or personalisation cookies unless
           this policy is updated and a consent mechanism is provided where required by law.
         </p>
       </section>
@@ -54,7 +54,7 @@ export default function CookiesPage() {
       <section>
         <h2>Questions and concerns</h2>
         <p>
-          For questions about this website’s cookie or similar-technology use, contact Vecells
+          For questions about this website’s cookie or similar-technology use, contact Vecell
           through the <Link href="/contact">contact page</Link>. The Information Commissioner’s
           Office also accepts{' '}
           <a href="https://ico.org.uk/make-a-complaint/" rel="noopener noreferrer" target="_blank">

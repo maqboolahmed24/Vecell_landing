@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'Vecells privacy policy.'
+  description: 'Vecell privacy policy.'
 };
 
 export default function PrivacyPage() {
@@ -15,8 +15,8 @@ export default function PrivacyPage() {
       <section>
         <h2>Who we are</h2>
         <p>
-          This privacy policy explains how Vecells handles personal information collected through
-          this public website, including enquiry and walkthrough request forms. Vecells is the
+          This privacy policy explains how Vecell handles personal information collected through
+          this public website, including enquiry and walkthrough request forms. Vecell is the
           controller for personal information collected through this website.
         </p>
       </section>
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       <section>
         <h2>What we collect</h2>
         <p>
-          When you contact Vecells, we collect the information you provide, such as your name, work
+          When you contact Vecell, we collect the information you provide, such as your name, work
           email address, organisation, role, enquiry type, message, consent confirmation, submission
           time, and limited technical information such as browser user-agent.
         </p>
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
       <section>
         <h2>Contact</h2>
         <p>
-          To ask a privacy question or exercise a data-protection right, contact Vecells through the{' '}
+          To ask a privacy question or exercise a data-protection right, contact Vecell through the{' '}
           <Link href="/contact">contact page</Link>.
         </p>
       </section>

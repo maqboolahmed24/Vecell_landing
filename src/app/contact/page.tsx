@@ -4,7 +4,7 @@ import { officialReferences } from '@/content/site';
 
 export const metadata = {
   title: 'Contact',
-  description: 'Contact Vecells to book a walkthrough or discuss primary-care demand routing.'
+  description: 'Contact Vecell to book a walkthrough or discuss primary-care demand routing.'
 };
 
 export default function ContactPage() {
@@ -13,7 +13,7 @@ export default function ContactPage() {
       <section className="contact-hero">
         <div>
           <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
-          <h1>Book a walkthrough of Vecells.</h1>
+          <h1>Book a walkthrough of Vecell.</h1>
           <p>
             Share your primary-care demand, operations, or assurance priorities. We will respond
             with the right walkthrough path for your team.

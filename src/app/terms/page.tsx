@@ -2,7 +2,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'Terms',
-  description: 'Vecells website terms.'
+  description: 'Vecell website terms.'
 };
 
 export default function TermsPage() {
@@ -31,7 +31,7 @@ export default function TermsPage() {
         <h2>Product information</h2>
         <p>
           Product descriptions, illustrations, interface examples, metrics, and workflow examples
-          are provided to explain the Vecells model. They are not a contractual commitment unless
+          are provided to explain the Vecell model. They are not a contractual commitment unless
           they are included in a signed agreement.
         </p>
       </section>
@@ -47,7 +47,7 @@ export default function TermsPage() {
         <h2>Intellectual property</h2>
         <p>
           Unless otherwise stated, website content, layout, copy, graphics, and branding belong to
-          Vecells or its licensors. You may view the website for evaluation purposes, but you may not
+          Vecell or its licensors. You may view the website for evaluation purposes, but you may not
           copy, modify, distribute, or create derivative works from it without permission.
         </p>
       </section>
@@ -55,7 +55,7 @@ export default function TermsPage() {
         <h2>External links</h2>
         <p>
           This website may link to third-party websites and public standards. Those websites are
-          controlled by their own operators, and Vecells is not responsible for their content,
+          controlled by their own operators, and Vecell is not responsible for their content,
           availability, or policies.
         </p>
       </section>
@@ -71,7 +71,7 @@ export default function TermsPage() {
         <h2>Liability</h2>
         <p>
           Nothing in these terms excludes liability that cannot be excluded by law. To the fullest
-          extent permitted by law, Vecells is not liable for loss arising from use of, or inability
+          extent permitted by law, Vecell is not liable for loss arising from use of, or inability
           to use, this public website.
         </p>
       </section>

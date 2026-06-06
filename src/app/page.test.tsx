@@ -8,18 +8,27 @@ vi.mock('next/image', () => ({
 }));
 
 describe('HomePage', () => {
-  it('renders core Vecells positioning and CTA', () => {
+  it('renders core Vecell positioning and CTA', () => {
     render(<HomePage />);
 
-    expect(screen.getByRole('heading', { name: 'Vecells' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Vecell' })).toBeInTheDocument();
     expect(screen.getByText(/One governed front door/i)).toBeInTheDocument();
     expect(screen.getByText(/The challenges we help primary care solve/i)).toBeInTheDocument();
-    expect(screen.getByText(/One governed request from first contact to closure/i)).toBeInTheDocument();
-    expect(screen.getByText(/A living proof layer for every decision/i)).toBeInTheDocument();
-    expect(screen.getByTestId('role-showcase')).toBeInTheDocument();
-    expect(screen.getByText(/Every endpoint remains part of the same accountable journey/i)).toBeInTheDocument();
-    expect(screen.getByText(/Better experiences without breaking the request spine/i)).toBeInTheDocument();
-    expect(screen.getByText(/Connect patient access, workforce tools, and partner systems/i)).toBeInTheDocument();
+    expect(screen.getByText(/Choose the detail that matches the job/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /Review the request and operating model/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /Match each role to the right surface/i })
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Open product/i })).toHaveAttribute(
+      'href',
+      '/product/how-it-works'
+    );
+    expect(screen.getByRole('link', { name: /View solutions/i })).toHaveAttribute(
+      'href',
+      '/solutions'
+    );
     expect(screen.getAllByRole('link', { name: /Book a walkthrough/i }).length).toBeGreaterThan(0);
   }, 10000);
 });

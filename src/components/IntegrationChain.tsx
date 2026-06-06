@@ -2,7 +2,7 @@ import { integrationChain } from '@/content/site';
 
 export function IntegrationChain() {
   return (
-    <div className="integration-chain" role="list" aria-label="Vecells integration chain">
+    <div className="integration-chain" role="list" aria-label="Vecell integration chain">
       {integrationChain.map((group) => {
         const Icon = group.icon;
 

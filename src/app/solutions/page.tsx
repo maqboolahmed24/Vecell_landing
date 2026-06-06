@@ -9,7 +9,7 @@ import { channels, surfaces } from '@/content/site';
 
 export const metadata = {
   title: 'Solutions',
-  description: 'Vecells solutions for patients, clinical teams, operations, hubs, pharmacy, support, and governance.'
+  description: 'Vecell solutions for patients, clinical teams, operations, hubs, pharmacy, support, and governance.'
 };
 
 export default function SolutionsPage() {
@@ -20,7 +20,7 @@ export default function SolutionsPage() {
           <Breadcrumbs items={[{ label: 'Solutions', href: '/solutions' }]} />
           <h1>Designed for patients, teams, and accountable operations.</h1>
           <p>
-            Vecells gives every participant a focused surface while preserving one governed request
+            Vecell gives every participant a focused surface while preserving one governed request
             across channels, decisions, handoffs, and outcomes.
           </p>
         </div>

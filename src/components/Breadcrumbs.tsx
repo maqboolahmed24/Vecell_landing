@@ -16,8 +16,8 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
 
           return (
             <li key={`${item.label}-${index}`}>
-              {item.href ? (
-                <Link href={item.href} aria-current={isCurrent ? 'page' : undefined}>
+              {item.href && !isCurrent ? (
+                <Link href={item.href}>
                   {item.label}
                 </Link>
               ) : (

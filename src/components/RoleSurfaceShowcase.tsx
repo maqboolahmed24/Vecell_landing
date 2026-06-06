@@ -1,16 +1,15 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, CircleDot, ShieldCheck } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { roleSurfaceDetails } from '@/content/site';
 
 export function RoleSurfaceShowcase({ compact = false }: { compact?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const reducedMotion = useReducedMotion();
   const activeSurface = roleSurfaceDetails[activeIndex] ?? roleSurfaceDetails[0];
-  const primaryRows = useMemo(() => activeSurface.worklist.slice(0, 3), [activeSurface.worklist]);
-  const Icon = activeSurface.icon;
 
   return (
     <div className={compact ? 'role-showcase role-showcase-compact' : 'role-showcase'} data-testid="role-showcase">
@@ -57,60 +56,16 @@ export function RoleSurfaceShowcase({ compact = false }: { compact?: boolean }) 
             </div>
           </div>
 
-          <div className="role-workbench" role="group" aria-label={`${activeSurface.title} preview`}>
-            <div className="role-workbench-top">
-              <div>
-                <span>{activeSurface.metricLabel}</span>
-                <strong>{activeSurface.metric}</strong>
-              </div>
-              <div>
-                <span>{activeSurface.status}</span>
-                <strong>{activeSurface.statusDetail}</strong>
-              </div>
-            </div>
-
-            <div className="role-shell">
-              <div className="role-shell-rail" aria-hidden="true">
-                <Icon size={20} />
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="role-shell-main">
-                <div className="role-shell-header">
-                  <div>
-                    <small>Current work</small>
-                    <strong>{activeSurface.title}</strong>
-                  </div>
-                  <span>{activeSurface.status}</span>
-                </div>
-
-                <div className="role-worklist">
-                  {primaryRows.map((row, index) => (
-                    <div key={row} className={index === 0 ? 'role-work-row role-work-row-active' : 'role-work-row'}>
-                      <CircleDot aria-hidden="true" size={15} />
-                      <span>{row}</span>
-                      {index === 0 ? <strong>Active</strong> : null}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="role-action-dock">
-                  <div>
-                    <ShieldCheck aria-hidden="true" size={18} />
-                    <span>Safe next action</span>
-                  </div>
-                  <strong>{activeSurface.actions[0]}</strong>
-                  <span className="role-action-cue" aria-hidden="true">
-                    <ArrowRight aria-hidden="true" size={16} />
-                  </span>
-                </div>
-              </div>
-              <div className="role-shell-side">
-                {activeSurface.actions.map((action) => (
-                  <span key={action}>{action}</span>
-                ))}
-              </div>
+          <div className="role-illustration-panel" role="group" aria-label={`${activeSurface.title} illustrated preview`}>
+            <div className="role-illustration-frame">
+              <Image
+                src={activeSurface.previewImage}
+                alt={activeSurface.previewAlt}
+                fill
+                unoptimized
+                priority={activeIndex === 0}
+                sizes="(max-width: 760px) 92vw, (max-width: 1180px) 86vw, 58vw"
+              />
             </div>
           </div>
         </motion.div>

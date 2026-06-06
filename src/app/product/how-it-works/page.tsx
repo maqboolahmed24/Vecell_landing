@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { AssuranceLedger } from '@/components/AssuranceLedger';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FlowVisual } from '@/components/FlowVisual';
+import { OperationsVisual } from '@/components/OperationsVisual';
 import { RequestPassport } from '@/components/RequestPassport';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeading } from '@/components/SectionHeading';
-import { endpointRoutes, flowSteps } from '@/content/site';
+import { assuranceItems, endpointRoutes, flowSteps, operatingMetrics, surfaces } from '@/content/site';
 
 export const metadata = {
-  title: 'How It Works',
-  description: 'How Vecells carries a primary-care request from first contact to safe outcome.'
+  title: 'Product',
+  description:
+    'How Vecell carries primary-care demand from request intake to safe outcome, operational control, and assurance proof.'
 };
 
 export default function HowItWorksPage() {
@@ -25,11 +28,11 @@ export default function HowItWorksPage() {
           />
           <h1>One request lineage. Multiple safe outcomes.</h1>
           <p>
-            Vecells captures primary-care demand once and carries identity, evidence, safety,
+            Vecell captures primary-care demand once and carries identity, evidence, safety,
             communication, endpoint choice, outcome, and audit through the entire journey.
           </p>
           <Link className="button button-primary" href="/contact">
-            See the platform
+            Book a walkthrough
             <ArrowRight aria-hidden="true" size={16} />
           </Link>
         </div>
@@ -80,6 +83,86 @@ export default function HowItWorksPage() {
                 <Icon aria-hidden="true" size={22} />
                 <h3>{route.title}</h3>
                 <p>{route.copy}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="section operations-section" id="operations-assurance">
+        <Reveal>
+          <OperationsVisual />
+        </Reveal>
+        <Reveal className="section-copy">
+          <p className="eyebrow">Operations and assurance</p>
+          <h2>Operational control for modern primary care.</h2>
+          <p>
+            Real-time workboards, assurance evidence, release controls, and dependency health help
+            leaders balance demand without losing proof.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="section">
+        <SectionHeading
+          eyebrow="Operating view"
+          title="A calmer view of what needs attention."
+          copy="Teams can see priorities, ownership, handoffs, and proof in plain language without turning the page into a technical dashboard."
+        />
+        <div className="metric-showcase">
+          {operatingMetrics.map((metric) => (
+            <article key={metric.label}>
+              <span>{metric.label}</span>
+              <strong>{metric.value}</strong>
+              <p>{metric.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <SectionHeading
+          eyebrow="Assurance ledger"
+          title="Every decision is backed by evidence."
+          copy="Request state, audit trail, role scope, release posture, outcome proof, and completeness checks stay aligned."
+        />
+        <AssuranceLedger />
+      </section>
+
+      <section className="section split-section">
+        <SectionHeading
+          eyebrow="Governed controls"
+          title="Safety, role scope, release posture, and audit stay visible."
+          copy="The assurance model is built into the workflow, so teams can act without losing the evidence behind each decision."
+        />
+        <div className="assurance-grid">
+          {assuranceItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className="assurance-item">
+                <Icon aria-hidden="true" size={22} />
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="section">
+        <SectionHeading
+          eyebrow="Surface families"
+          title="Each role works in its own shell while the product keeps one proof model."
+          copy="Patient, clinical, operations, hub, pharmacy, support, and governance surfaces share the same governed request context."
+        />
+        <div className="surface-grid">
+          {surfaces.map((surface) => {
+            const Icon = surface.icon;
+            return (
+              <article key={surface.title} className="surface-card">
+                <Icon aria-hidden="true" size={24} />
+                <h3>{surface.title}</h3>
+                <p>{surface.copy}</p>
               </article>
             );
           })}

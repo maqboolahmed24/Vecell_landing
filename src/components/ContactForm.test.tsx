@@ -15,7 +15,7 @@ function completeRequiredFields() {
   fireEvent.change(screen.getByLabelText('Message'), {
     target: { value: 'We want to review the request flow and assurance model.' }
   });
-  fireEvent.click(screen.getByLabelText('I agree that Vecells can use this information to respond to my enquiry.'));
+  fireEvent.click(screen.getByLabelText('I agree that Vecell can use this information to respond to my enquiry.'));
 }
 
 afterEach(() => {

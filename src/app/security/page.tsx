@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'Security',
-  description: 'Vecells security posture overview.'
+  description: 'Vecell security posture overview.'
 };
 
 export default function SecurityPage() {
@@ -15,7 +15,7 @@ export default function SecurityPage() {
       <section>
         <h2>Security approach</h2>
         <p>
-          Vecells is designed around minimum-necessary access, role-based visibility, evidence
+          Vecell is designed around minimum-necessary access, role-based visibility, evidence
           integrity, auditability, release control, and secure handling of operational data. Security
           and assurance are treated as product requirements, not add-ons.
         </p>
@@ -47,7 +47,7 @@ export default function SecurityPage() {
       <section>
         <h2>Reporting a concern</h2>
         <p>
-          If you believe you have found a security issue, contact Vecells through the{' '}
+          If you believe you have found a security issue, contact Vecell through the{' '}
           <Link href="/contact">contact page</Link> and include enough detail for the issue to be
           investigated safely.
         </p>

@@ -20,7 +20,7 @@ afterEach(() => {
 
 describe('site URL helpers', () => {
   it('normalises configured site URLs without trailing slashes', () => {
-    expect(normaliseSiteUrl('https://vecells.example///')).toBe('https://vecells.example');
+    expect(normaliseSiteUrl('https://vecell.example///')).toBe('https://vecell.example');
   });
 
   it('uses the active local port for fallback URLs', () => {
@@ -30,15 +30,15 @@ describe('site URL helpers', () => {
   });
 
   it('returns a valid configured public site URL', () => {
-    process.env.NEXT_PUBLIC_SITE_URL = 'https://vecells.example///';
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://vecell.example///';
 
-    expect(configuredSiteUrl()).toBe('https://vecells.example');
+    expect(configuredSiteUrl()).toBe('https://vecell.example');
   });
 
   it('drops path segments from configured public site URLs', () => {
-    process.env.NEXT_PUBLIC_SITE_URL = 'https://vecells.example/app/path';
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://vecell.example/app/path';
 
-    expect(configuredSiteUrl()).toBe('https://vecells.example');
+    expect(configuredSiteUrl()).toBe('https://vecell.example');
   });
 
   it('ignores malformed configured site URLs before metadata uses them', () => {
@@ -51,22 +51,22 @@ describe('site URL helpers', () => {
 
   it('uses Vercel production URL when no explicit site URL is configured', () => {
     delete process.env.NEXT_PUBLIC_SITE_URL;
-    process.env.VERCEL_PROJECT_PRODUCTION_URL = 'vecells.vercel.app';
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = 'vecell.vercel.app';
 
-    expect(configuredSiteUrl()).toBe('https://vecells.vercel.app');
+    expect(configuredSiteUrl()).toBe('https://vecell.vercel.app');
   });
 
   it('builds a safe origin from forwarded host and protocol headers', () => {
-    expect(siteUrlFromHost('vecells.example, proxy.local', 'https, http')).toBe('https://vecells.example');
+    expect(siteUrlFromHost('vecell.example, proxy.local', 'https, http')).toBe('https://vecell.example');
   });
 
   it('defaults to HTTPS for public hosts when the forwarded protocol is invalid', () => {
-    expect(siteUrlFromHost('vecells.example', 'javascript')).toBe('https://vecells.example');
+    expect(siteUrlFromHost('vecell.example', 'javascript')).toBe('https://vecell.example');
   });
 
   it('falls back locally for malformed host headers', () => {
     process.env.PORT = '3002';
 
-    expect(siteUrlFromHost('vecells.example/path', 'https')).toBe('http://localhost:3002');
+    expect(siteUrlFromHost('vecell.example/path', 'https')).toBe('http://localhost:3002');
   });
 });

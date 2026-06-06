@@ -25,9 +25,9 @@ export function OperationsVisual() {
         ))}
       </div>
       <div className="ops-proof-grid">
-        <p><strong>Queue pressure</strong><span>Demand flow by hub and horizon.</span></p>
-        <p><strong>Dependency health</strong><span>Partners and channels stay visible.</span></p>
-        <p><strong>Assurance proof</strong><span>Every intervention has a record.</span></p>
+        <p><strong>Workload picture</strong><span>See where demand is building.</span></p>
+        <p><strong>Team readiness</strong><span>Keep handoffs and responsibilities clear.</span></p>
+        <p><strong>Proof attached</strong><span>Keep each action easy to explain.</span></p>
       </div>
     </div>
   );

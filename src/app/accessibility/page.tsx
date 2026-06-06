@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
   title: 'Accessibility',
-  description: 'Vecells accessibility statement.'
+  description: 'Vecell accessibility statement.'
 };
 
 export default function AccessibilityPage() {
@@ -15,7 +15,7 @@ export default function AccessibilityPage() {
       <section>
         <h2>Scope</h2>
         <p>
-          This accessibility statement applies to the Vecells public website. It does not cover
+          This accessibility statement applies to the Vecell public website. It does not cover
           deployment-specific product environments, third-party websites, or documents provided by
           healthcare organisations, which should have their own accessibility information.
         </p>
@@ -23,7 +23,7 @@ export default function AccessibilityPage() {
       <section>
         <h2>Commitment</h2>
         <p>
-          Vecells aims for the public website to be accessible, usable, and understandable for as
+          Vecell aims for the public website to be accessible, usable, and understandable for as
           many people as possible. The website is designed with semantic structure, keyboard access,
           visible focus states, readable contrast, responsive layouts, and reduced-motion support.
         </p>

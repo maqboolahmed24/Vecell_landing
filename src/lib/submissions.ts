@@ -73,10 +73,9 @@ export function validateLead(input: unknown): Lead {
 
 function submissionStorePath() {
   return (
-    process.env.VECELLS_SUBMISSION_STORE_PATH ??
     process.env.VECELL_SUBMISSION_STORE_PATH ??
     (process.env.NODE_ENV === 'production'
-      ? join(tmpdir(), 'vecells-submissions.jsonl')
+      ? join(tmpdir(), 'vecell-submissions.jsonl')
       : join(process.cwd(), 'data', 'submissions.jsonl'))
   );
 }
@@ -256,7 +255,7 @@ export function leadResponse(record: LeadRecord) {
     ok: true,
     id: record.id,
     receivedAt: record.createdAt,
-    nextStep: 'A Vecells team member will review the request and respond with the appropriate walkthrough route.'
+    nextStep: 'A Vecell team member will review the request and respond with the appropriate walkthrough route.'
   };
 }
 

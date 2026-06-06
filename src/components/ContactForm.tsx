@@ -108,7 +108,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       </label>
       <label className="checkbox-row">
         <input name="consent" type="checkbox" required />
-        <span>I agree that Vecells can use this information to respond to my enquiry.</span>
+        <span>I agree that Vecell can use this information to respond to my enquiry.</span>
       </label>
       <button className="button button-primary form-submit" type="submit" disabled={submitState.state === 'submitting'}>
         {submitState.state === 'submitting' ? 'Sending' : compact ? 'Request walkthrough' : 'Send enquiry'}
