@@ -6,9 +6,10 @@ export const dynamic = 'force-dynamic';
 
 const routes = [
   '',
-  '/product/how-it-works',
-  '/solutions',
-  '/about',
+  '/platform',
+  '/workflows',
+  '/assurance',
+  '/pilot',
   '/contact',
   '/privacy',
   '/cookies',
@@ -39,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date('2026-06-05'),
+    lastModified: new Date('2026-06-07'),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : 0.7
   }));

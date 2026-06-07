@@ -11,7 +11,7 @@ export default function AccessibilityPage() {
     <main className="legal-page">
       <Breadcrumbs items={[{ label: 'Accessibility', href: '/accessibility' }]} />
       <h1>Accessibility statement</h1>
-      <p>Last updated: 5 June 2026</p>
+      <p>Last updated: 7 June 2026</p>
       <section>
         <h2>Scope</h2>
         <p>
@@ -75,7 +75,7 @@ export default function AccessibilityPage() {
       <section>
         <h2>Preparation of this statement</h2>
         <p>
-          This statement was prepared for the current public website on 5 June 2026. It will be
+          This statement was prepared for the current public website on 7 June 2026. It will be
           reviewed when the website materially changes.
         </p>
       </section>

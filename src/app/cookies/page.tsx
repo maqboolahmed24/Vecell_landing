@@ -11,7 +11,7 @@ export default function CookiesPage() {
     <main className="legal-page">
       <Breadcrumbs items={[{ label: 'Cookies', href: '/cookies' }]} />
       <h1>Cookie policy</h1>
-      <p>Last updated: 5 June 2026</p>
+      <p>Last updated: 7 June 2026</p>
       <section>
         <h2>What cookies are</h2>
         <p>

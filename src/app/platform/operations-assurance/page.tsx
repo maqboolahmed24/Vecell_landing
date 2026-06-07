@@ -1,17 +1,16 @@
-import { PlatformSectionRedirect } from '@/components/PlatformSectionRedirect';
+import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export const metadata = {
-  title: 'Product',
-  description: 'Vecell product and operations assurance content now lives on the Product page.',
+  title: 'Assurance',
   robots: {
     index: false,
     follow: true
   }
 };
 
-export default function OperationsAssuranceRedirectPage() {
-  return <PlatformSectionRedirect />;
+export default function LegacyOperationsAssurancePage() {
+  redirect('/assurance');
 }

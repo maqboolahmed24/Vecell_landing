@@ -28,10 +28,10 @@ import {
 import type { LucideIcon } from 'lucide-react';
 
 export const navItems = [
-  { label: 'Product', href: '/product/how-it-works' },
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' }
+  { label: 'Platform', href: '/platform' },
+  { label: 'Workflows', href: '/workflows' },
+  { label: 'Assurance', href: '/assurance' },
+  { label: 'Pilot', href: '/pilot' }
 ] as const;
 
 export const trustBadges = [
@@ -415,7 +415,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Patient Portal',
     audience: 'Patients and carers',
     summary: 'A quiet home for active requests, appointments, messages, records, and the next safe action.',
-    previewImage: '/illustrations/vecell-role-patient-portal.png',
+    previewImage: '/illustrations/vecell-platform-pipeline.png',
     previewAlt: 'Illustrated patient portal preview showing request tracking, appointments, messages, and the next safe action.',
     icon: HeartPulse,
     metric: '1',
@@ -430,7 +430,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Clinical Workspace',
     audience: 'Clinicians and reviewers',
     summary: 'A compact queue and task canvas for evidence review, triage, decisioning, and safe handoff.',
-    previewImage: '/illustrations/vecell-role-clinical-workspace.png',
+    previewImage: '/illustrations/vecell-platform-pipeline.png',
     previewAlt: 'Illustrated clinical workspace preview showing a queue, evidence review, decision-ready state, and patient messaging actions.',
     icon: Stethoscope,
     metric: '23',
@@ -445,7 +445,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Operations Console',
     audience: 'Operational leaders',
     summary: 'A control-room board for demand, capacity, dependencies, intervention, and assurance.',
-    previewImage: '/illustrations/vecell-role-operations-console.png',
+    previewImage: '/illustrations/vecell-platform-pipeline.png',
     previewAlt: 'Illustrated operations console preview showing queue pressure, capacity, dependency health, and an intervention panel.',
     icon: Activity,
     metric: '94%',
@@ -460,7 +460,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Hub Desk',
     audience: 'PCN and hub teams',
     summary: 'A coordination shell for cross-site routing, patient choice, hub slots, and return-to-practice visibility.',
-    previewImage: '/illustrations/vecell-role-hub-desk.png',
+    previewImage: '/illustrations/vecell-platform-pipeline.png',
     previewAlt: 'Illustrated hub desk preview showing hub options, patient choice, confirmed offers, and return-to-practice visibility.',
     icon: UsersRound,
     metric: '8',
@@ -475,7 +475,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Pharmacy Console',
     audience: 'Pharmacy teams',
     summary: 'A mission frame for consent, eligibility, referral review, handoff, and pharmacy outcome evidence.',
-    previewImage: '/illustrations/vecell-role-pharmacy-console.png',
+    previewImage: '/illustrations/vecell-assurance-ledger.png',
     previewAlt: 'Illustrated pharmacy console preview showing consent checked, referral readiness, eligibility, dispatch, and outcome recording.',
     icon: FileCheck2,
     metric: '4',
@@ -490,7 +490,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Support Desk',
     audience: 'Support and admin teams',
     summary: 'A masked support view for patient enquiries, delivery repair, replay, and safe return to the right shell.',
-    previewImage: '/illustrations/vecell-role-support-desk.png',
+    previewImage: '/illustrations/vecell-assurance-ledger.png',
     previewAlt: 'Illustrated support desk preview showing a masked timeline, open enquiry, context restoration, updates, and safe escalation.',
     icon: MessageSquareText,
     metric: '12',
@@ -505,7 +505,7 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     title: 'Governance & Admin',
     audience: 'Governance and platform teams',
     summary: 'A controlled shell for roles, policies, release posture, configuration, evidence, and approvals.',
-    previewImage: '/illustrations/vecell-role-governance-admin.png',
+    previewImage: '/illustrations/vecell-assurance-ledger.png',
     previewAlt: 'Illustrated governance and admin preview showing scope, policy diff, simulation, approval readiness, release watch, and evidence export.',
     icon: LockKeyhole,
     metric: '3',
@@ -671,10 +671,11 @@ export const challenges = [
 ] as const;
 
 export const legalPages = [
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Cookies', href: '/cookies' },
-  { label: 'Terms', href: '/terms' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
   { label: 'Security', href: '/security' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Cookies', href: '/cookies' },
   { label: 'Accessibility', href: '/accessibility' }
 ] as const;
 

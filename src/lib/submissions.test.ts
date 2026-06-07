@@ -157,6 +157,18 @@ describe('assertSameOriginSubmission', () => {
 
     expect(() => assertSameOriginSubmission(request)).toThrow(SubmissionRequestError);
   });
+
+  it('allows a matching Origin even when Fetch Metadata is misleading', () => {
+    const request = new Request('https://vecell.example/api/contact', {
+      method: 'POST',
+      headers: {
+        origin: 'https://vecell.example',
+        'sec-fetch-site': 'cross-site'
+      }
+    });
+
+    expect(() => assertSameOriginSubmission(request)).not.toThrow();
+  });
 });
 
 describe('readSubmissionJson', () => {

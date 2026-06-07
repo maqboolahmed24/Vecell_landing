@@ -163,28 +163,27 @@ export async function readSubmissionJson(request: Request) {
 
 export function assertSameOriginSubmission(request: Request) {
   const fetchSite = request.headers.get('sec-fetch-site')?.toLowerCase();
-
-  if (fetchSite === 'cross-site') {
-    throw new SubmissionRequestError('Request origin is not allowed', 403);
-  }
-
   const originHeader = request.headers.get('origin');
 
-  if (!originHeader) {
+  if (originHeader) {
+    let origin: string;
+    let requestOrigin: string;
+
+    try {
+      origin = new URL(originHeader).origin;
+      requestOrigin = new URL(request.url).origin;
+    } catch {
+      throw new SubmissionRequestError('Request origin is not allowed', 403);
+    }
+
+    if (origin !== requestOrigin) {
+      throw new SubmissionRequestError('Request origin is not allowed', 403);
+    }
+
     return;
   }
 
-  let origin: string;
-  let requestOrigin: string;
-
-  try {
-    origin = new URL(originHeader).origin;
-    requestOrigin = new URL(request.url).origin;
-  } catch {
-    throw new SubmissionRequestError('Request origin is not allowed', 403);
-  }
-
-  if (origin !== requestOrigin) {
+  if (fetchSite === 'cross-site') {
     throw new SubmissionRequestError('Request origin is not allowed', 403);
   }
 }

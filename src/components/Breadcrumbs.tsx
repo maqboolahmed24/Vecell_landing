@@ -9,8 +9,8 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   const currentIndex = items.length - 1;
 
   return (
-    <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-      <ol>
+    <nav aria-label="Breadcrumb">
+      <ol className="breadcrumb-list">
         {items.map((item, index) => {
           const isCurrent = index === currentIndex;
 

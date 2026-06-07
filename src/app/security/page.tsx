@@ -11,7 +11,7 @@ export default function SecurityPage() {
     <main className="legal-page">
       <Breadcrumbs items={[{ label: 'Security', href: '/security' }]} />
       <h1>Security and assurance</h1>
-      <p>Last updated: 5 June 2026</p>
+      <p>Last updated: 7 June 2026</p>
       <section>
         <h2>Security approach</h2>
         <p>

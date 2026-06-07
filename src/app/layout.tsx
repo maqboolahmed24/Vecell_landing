@@ -4,24 +4,24 @@ import { Header } from '@/components/Header';
 import { configuredSiteUrl, fallbackLocalSiteUrl } from '@/lib/site-url';
 import './globals.css';
 
-const socialImage = '/illustrations/vecell-hero-welcome-v1.png';
+const socialImage = '/illustrations/vecell-platform-pipeline.png';
 const siteUrl = configuredSiteUrl() ?? fallbackLocalSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vecell | Governed primary-care demand platform',
+    default: 'Vecell | The operating layer for primary care',
     template: '%s | Vecell'
   },
   description:
-    'Vecell unifies web, phone, and NHS App primary-care demand into one governed request flow with safety, triage, routing, operations, and assurance.',
+    'Vecell is the operating layer for primary care: one front door, one live view, and every request routed safely.',
   openGraph: {
     title: 'Vecell',
     description:
-      'A governed primary-care demand platform for safer intake, routing, operations, and assurance.',
+      'The operating layer for primary care: one front door, one live view, and every request routed safely.',
     url: '/',
     siteName: 'Vecell',
-    images: [{ url: socialImage, width: 1672, height: 941 }],
+    images: [{ url: socialImage, width: 512, height: 512 }],
     locale: 'en_GB',
     type: 'website'
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vecell',
     description:
-      'A governed primary-care demand platform for safer intake, routing, operations, and assurance.',
+      'The operating layer for primary care: one front door, one live view, and every request routed safely.',
     images: [socialImage]
   }
 };

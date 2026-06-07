@@ -10,7 +10,7 @@ export default function TermsPage() {
     <main className="legal-page">
       <Breadcrumbs items={[{ label: 'Terms', href: '/terms' }]} />
       <h1>Website terms</h1>
-      <p>Last updated: 5 June 2026</p>
+      <p>Last updated: 7 June 2026</p>
       <section>
         <h2>Use of this website</h2>
         <p>

@@ -69,41 +69,77 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <input name="website" aria-label="Company website" autoComplete="off" tabIndex={-1} />
       </div>
       <div className="field-grid">
-        <label>
-          Name
-          <input name="name" autoComplete="name" required minLength={2} />
+        <label htmlFor={compact ? 'pilot-name' : 'contact-name'}>
+          Full name
+          <input
+            id={compact ? 'pilot-name' : 'contact-name'}
+            name="name"
+            autoComplete="name"
+            placeholder="Dr. Jane Smith"
+            required
+            minLength={2}
+          />
         </label>
-        <label>
-          Work email
-          <input name="email" type="email" autoComplete="email" required />
+        <label htmlFor={compact ? 'pilot-email' : 'contact-email'}>
+          Professional email
+          <input
+            id={compact ? 'pilot-email' : 'contact-email'}
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="name@practice.nhs.uk"
+            required
+          />
         </label>
       </div>
       <div className="field-grid">
-        <label>
-          Organisation
-          <input name="organisation" autoComplete="organization" required minLength={2} />
+        <label htmlFor={compact ? 'pilot-organisation' : 'contact-organisation'}>
+          Organization / PCN name
+          <input
+            id={compact ? 'pilot-organisation' : 'contact-organisation'}
+            name="organisation"
+            autoComplete="organization"
+            placeholder="e.g., North City PCN"
+            required
+            minLength={2}
+          />
         </label>
-        <label>
-          Role
-          <input name="role" autoComplete="organization-title" />
+        <label htmlFor={compact ? 'pilot-role' : 'contact-role'}>
+          Role / title
+          <input
+            id={compact ? 'pilot-role' : 'contact-role'}
+            name="role"
+            autoComplete="organization-title"
+            placeholder="Clinical Director"
+          />
         </label>
       </div>
-      <label>
-        What should we help with?
-        <select name="intent" defaultValue={compact ? 'Book a walkthrough' : 'Discuss primary-care demand'} required>
-          {contactIntents.map((intent) => (
-            <option key={intent}>{intent}</option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Message
+      {compact ? (
+        <input name="intent" type="hidden" value="Book a walkthrough" readOnly />
+      ) : (
+        <label htmlFor="contact-intent">
+          What should we help with?
+          <select id="contact-intent" name="intent" defaultValue="Discuss primary-care demand" required>
+            {contactIntents.map((intent) => (
+              <option key={intent}>{intent}</option>
+            ))}
+          </select>
+        </label>
+      )}
+      <label htmlFor={compact ? 'pilot-message' : 'contact-message'}>
+        {compact ? 'Current operational challenges' : 'Message'}
         <textarea
+          id={compact ? 'pilot-message' : 'contact-message'}
           name="message"
           required
           minLength={12}
           rows={compact ? 4 : 6}
-          defaultValue={compact ? 'I would like to see the governed request flow and operations assurance model.' : ''}
+          placeholder={
+            compact
+              ? 'Briefly describe your current triage or workflow bottlenecks...'
+              : 'Tell us what you want to review.'
+          }
+          defaultValue={compact ? 'I would like to request a pilot pack for our primary-care front door.' : ''}
         />
       </label>
       <label className="checkbox-row">
@@ -111,7 +147,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <span>I agree that Vecell can use this information to respond to my enquiry.</span>
       </label>
       <button className="button button-primary form-submit" type="submit" disabled={submitState.state === 'submitting'}>
-        {submitState.state === 'submitting' ? 'Sending' : compact ? 'Request walkthrough' : 'Send enquiry'}
+        {submitState.state === 'submitting' ? 'Sending' : compact ? 'Submit Request' : 'Send enquiry'}
         <ArrowRight aria-hidden="true" size={16} />
       </button>
       {submitState.state === 'success' ? (

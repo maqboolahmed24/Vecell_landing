@@ -4,31 +4,25 @@ import { createElement } from 'react';
 import HomePage from '@/app/page';
 
 vi.mock('next/image', () => ({
-  default: (props: { alt: string }) => createElement('img', { alt: props.alt })
+  default: (props: { alt: string; src: string }) => createElement('img', { alt: props.alt, src: props.src })
 }));
 
 describe('HomePage', () => {
-  it('renders core Vecell positioning and CTA', () => {
-    render(<HomePage />);
+  it('renders the operating-layer positioning and wired CTAs', () => {
+    const { container } = render(<HomePage />);
 
-    expect(screen.getByRole('heading', { name: 'Vecell' })).toBeInTheDocument();
-    expect(screen.getByText(/One governed front door/i)).toBeInTheDocument();
-    expect(screen.getByText(/The challenges we help primary care solve/i)).toBeInTheDocument();
-    expect(screen.getByText(/Choose the detail that matches the job/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /Review the request and operating model/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /Match each role to the right surface/i })
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Open product/i })).toHaveAttribute(
-      'href',
-      '/product/how-it-works'
+    expect(screen.getByRole('heading', { name: /The operating layer for primary care/i })).toBeInTheDocument();
+    expect(container.querySelector('.home-hero-media img')).toHaveAttribute(
+      'src',
+      '/illustrations/vecell-platform-orchestration-hero.png'
     );
-    expect(screen.getByRole('link', { name: /View solutions/i })).toHaveAttribute(
+    expect(screen.getByText(/One front door\. One live view/i)).toBeInTheDocument();
+    expect(screen.getByText(/Demand is fragmented/i)).toBeInTheDocument();
+    expect(screen.getByText(/Build the front door primary care deserves/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /See the flow/i })).toHaveAttribute(
       'href',
-      '/solutions'
+      '/workflows'
     );
-    expect(screen.getAllByRole('link', { name: /Book a walkthrough/i }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('link', { name: /Request a pilot/i })[0]).toHaveAttribute('href', '/pilot#contact');
   }, 10000);
 });

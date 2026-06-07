@@ -3,13 +3,13 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ContactForm } from '@/components/ContactForm';
 
 function completeRequiredFields() {
-  fireEvent.change(screen.getByLabelText('Name'), {
+  fireEvent.change(screen.getByLabelText('Full name'), {
     target: { value: 'Sarah Ahmed' }
   });
-  fireEvent.change(screen.getByLabelText('Work email'), {
+  fireEvent.change(screen.getByLabelText('Professional email'), {
     target: { value: 'sarah@example.nhs.uk' }
   });
-  fireEvent.change(screen.getByLabelText('Organisation'), {
+  fireEvent.change(screen.getByLabelText('Organization / PCN name'), {
     target: { value: 'North Hub PCN' }
   });
   fireEvent.change(screen.getByLabelText('Message'), {

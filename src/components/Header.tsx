@@ -1,34 +1,45 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/Logo';
 import { navItems } from '@/content/site';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const reducedMotion = useReducedMotion();
+  const pathname = usePathname();
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="site-header">
+    <header className={scrolled ? 'site-header site-header-scrolled' : 'site-header'}>
       <Logo onClick={closeMenu} />
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href} onClick={closeMenu}>
-            {item.label}
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+
+          return (
+            <Link key={item.href} href={item.href} onClick={closeMenu} aria-current={active ? 'page' : undefined}>
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
       <div className="header-actions">
-        <Link className="button button-ghost" href="/product/how-it-works" onClick={closeMenu}>
-          See the request flow
-          <ArrowRight aria-hidden="true" size={16} />
-        </Link>
-        <Link className="button button-primary" href="/contact" onClick={closeMenu}>
-          Book a walkthrough
+        <Link className="button button-primary" href="/pilot#contact" onClick={closeMenu}>
+          Request access
         </Link>
         <button
           type="button"
@@ -58,6 +69,10 @@ export function Header() {
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>
             ))}
+            <Link href="/pilot#contact" onClick={closeMenu}>
+              Request access
+              <ArrowRight aria-hidden="true" size={16} />
+            </Link>
           </motion.nav>
         ) : null}
       </AnimatePresence>

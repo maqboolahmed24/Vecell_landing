@@ -8,29 +8,21 @@ export function Footer() {
       <div className="footer-brand">
         <Logo />
         <p>
-          Vecell is a governed primary-care demand platform for safer intake, routing,
-          operations, and assurance.
+          © 2026 Vecell. All rights reserved. Built for the front door of primary care.
         </p>
       </div>
       <div className="footer-grid">
-        <div>
-          <h2>Site</h2>
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </div>
-        <div>
-          <h2>Legal</h2>
-          {legalPages.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </div>
+        {navItems.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
+        {legalPages.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
       </div>
-      <p className="footer-note">© {new Date().getFullYear()} Vecell. All rights reserved.</p>
     </footer>
   );
 }

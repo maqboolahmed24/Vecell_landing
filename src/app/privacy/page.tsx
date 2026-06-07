@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <main className="legal-page">
       <Breadcrumbs items={[{ label: 'Privacy', href: '/privacy' }]} />
       <h1>Privacy policy</h1>
-      <p>Last updated: 5 June 2026</p>
+      <p>Last updated: 7 June 2026</p>
       <section>
         <h2>Who we are</h2>
         <p>
