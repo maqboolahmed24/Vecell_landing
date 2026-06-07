@@ -17,7 +17,7 @@ describe('HomePage', () => {
       '/illustrations/vecell-platform-orchestration-hero.png'
     );
     expect(screen.getByText(/One front door\. One live view/i)).toBeInTheDocument();
-    expect(screen.getByText(/Demand is fragmented/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Demand is fragmented/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Build the front door primary care deserves/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /See the flow/i })).toHaveAttribute(
       'href',

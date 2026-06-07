@@ -69,9 +69,14 @@ export function HomeScrollJourney() {
             </Link>
           </div>
         </motion.div>
+        <motion.a className="home-hero-peek" href="#demand" variants={itemMotion}>
+          <span>Next</span>
+          <strong>Demand is fragmented. Safety can&apos;t be.</strong>
+          <ArrowRight aria-hidden="true" size={16} />
+        </motion.a>
       </motion.section>
 
-      <motion.section className="home-flow-panel home-flow-white" {...motionProps}>
+      <motion.section id="demand" className="home-flow-panel home-flow-white" {...motionProps}>
         <motion.div className="home-flow-copy" variants={itemMotion}>
           <span className="eyebrow">Demand</span>
           <h2>Demand is fragmented. Safety can&apos;t be.</h2>
