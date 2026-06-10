@@ -138,6 +138,7 @@ const setHomeMotion = (
   const travel = Math.min(96, Math.max(42, viewportWidth * 0.045));
   const activeDepth = smoothStep(clamp((entryFade - 0.04) / 0.96));
   const motionItems = Array.from(panel.querySelectorAll<HTMLElement>('.home-motion-item'));
+  const hasEntered = panel.classList.contains('journey-has-entered');
 
   panel.style.setProperty('--home-flow-x', `${centerProgress * travel * origin.x * 0.1}px`);
   panel.style.setProperty('--home-flow-y', `${centerProgress * travel * origin.y * 0.16}px`);
@@ -148,8 +149,7 @@ const setHomeMotion = (
     const isSmallItem = element.matches('.chip, .home-flow-proof span, .button, .landing-actions a');
     const itemDelay = itemIndex * (isSmallItem ? 0.014 : 0.028);
     const arrival = smoothStep(clamp((progress - 0.16 - itemDelay) / 0.3));
-    const departure = smoothStep(clamp((1.04 - progress + itemIndex * 0.006) / 0.3));
-    const presence = clamp(arrival * departure);
+    const presence = hasEntered ? 1 : arrival;
     const absence = 1 - presence;
     const readingDrift = centerProgress * (isSmallItem ? 4 : 7);
     const x = itemProfile.x * absence;
@@ -209,6 +209,7 @@ export function ScrollJourney() {
     const panels = Array.from(document.querySelectorAll<HTMLElement>(PANEL_SELECTOR));
     const frameElements = new Set<HTMLElement>();
     const homeMotionElements = new Set<HTMLElement>();
+    let requestUpdate = () => {};
 
     document.body.classList.add('scroll-journey-active');
 
@@ -242,6 +243,7 @@ export function ScrollJourney() {
 
           if (entry.isIntersecting) {
             panel.classList.add('journey-in-view', 'journey-has-entered');
+            requestUpdate();
           } else {
             panel.classList.remove('journey-in-view');
           }
@@ -287,8 +289,8 @@ export function ScrollJourney() {
         const mediaDirection = index % 2 === 0 ? 1 : -0.86;
         const entryFade = clamp(Math.min(progress * 2.6, (1 - progress) * 2.6) + 0.08);
         const frameArrival = smoothStep(clamp((progress - 0.03) / 0.38));
-        const frameHold = smoothStep(clamp((1.08 - progress) / 0.24));
-        const framePresence = clamp(frameArrival * frameHold);
+        const hasEntered = panel.classList.contains('journey-has-entered');
+        const framePresence = hasEntered ? 1 : frameArrival;
         const cueArrival = smoothStep(clamp((progress - 0.46) / 0.28));
         const cueDeparture = 1 - smoothStep(clamp((progress - 0.94) / 0.1));
         const cuePresence = clamp(cueArrival * cueDeparture);
@@ -315,7 +317,7 @@ export function ScrollJourney() {
       });
     };
 
-    const requestUpdate = () => {
+    requestUpdate = () => {
       if (frame) {
         return;
       }
