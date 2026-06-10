@@ -30,16 +30,17 @@ import type { LucideIcon } from 'lucide-react';
 export const navItems = [
   { label: 'Platform', href: '/platform' },
   { label: 'Workflows', href: '/workflows' },
+  { label: 'Intelligence', href: '/intelligence' },
   { label: 'Assurance', href: '/assurance' },
   { label: 'Pilot', href: '/pilot' }
 ] as const;
 
 export const trustBadges = [
   'NHS App-ready journey model',
-  'ISO 27001 control posture',
+  'ISO 27001-aligned control planning',
   'DPIA and UK GDPR aligned',
   'DCB0129 safety-case workflow',
-  '99.9% uptime target'
+  'Availability planning'
 ] as const;
 
 export interface IconCopy {
@@ -113,8 +114,8 @@ export const channels: IconCopy[] = [
     icon: Network
   },
   {
-    title: 'NHS App',
-    copy: 'Embedded jump-off journeys that preserve patient shell context.',
+    title: 'NHS App-ready',
+    copy: 'NHS App-ready jump-off journeys that preserve patient shell context.',
     icon: ShieldCheck
   },
   {
@@ -128,7 +129,7 @@ export const integrationChain: IntegrationGroup[] = [
   {
     title: 'Patient access',
     icon: TabletSmartphone,
-    items: ['NHS App', 'Web / mobile', 'Phone']
+    items: ['NHS App-ready', 'Web / mobile', 'Phone']
   },
   {
     title: 'Engagement channels',
@@ -143,7 +144,7 @@ export const integrationChain: IntegrationGroup[] = [
   {
     title: 'FHIR boundary',
     icon: Globe2,
-    items: ['FHIR API', 'Secure exchange', 'Mapped representations', 'Consent proof']
+    items: ['FHIR-aligned exchange', 'Secure transfer', 'Mapped representations', 'Consent proof']
   },
   {
     title: 'Core systems',
@@ -170,7 +171,7 @@ export const integrationChain: IntegrationGroup[] = [
 export const flowSteps: IconCopy[] = [
   {
     title: 'Capture',
-    copy: 'Collect demand from web, phone, and NHS App without splitting queues.',
+    copy: 'Collect demand from web, phone, and NHS App-ready journeys without splitting queues.',
     icon: ClipboardCheck
   },
   {
@@ -227,7 +228,7 @@ export const requestLifecycleStages: RequestLifecycleStage[] = [
   },
   {
     title: 'Endpoint decision',
-    copy: 'The request is routed to the best available endpoint with rationale preserved.',
+    copy: 'The request is routed to an appropriate endpoint with rationale preserved.',
     state: 'Route selected',
     artifact: 'Clinician messaging',
     proof: 'Decision reason retained',
@@ -263,7 +264,7 @@ export const requestPassportFields: RequestPassportField[] = [
   {
     label: 'Request ID',
     value: 'VC-7G45-9K2H',
-    detail: 'Created 12 May 2025, 09:15',
+    detail: 'Created at intake, 09:15',
     status: 'Lineage open',
     tone: 'recorded',
     icon: Hash
@@ -385,7 +386,7 @@ export const surfaces: IconCopy[] = [
   },
   {
     title: 'Operations Console',
-    copy: 'Real-time oversight of queues, capacity, dependencies, and delivery health.',
+    copy: 'Current oversight of queues, capacity, dependencies, and delivery health.',
     icon: Activity
   },
   {
@@ -448,8 +449,8 @@ export const roleSurfaceDetails: RoleSurfaceDetail[] = [
     previewImage: '/illustrations/vecell-platform-pipeline.png',
     previewAlt: 'Illustrated operations console preview showing queue pressure, capacity, dependency health, and an intervention panel.',
     icon: Activity,
-    metric: '94%',
-    metricLabel: 'delivery health',
+    metric: 'Live',
+    metricLabel: 'delivery view',
     status: 'On track',
     statusDetail: 'North Hub pressure is rising',
     worklist: ['North Hub high pressure', 'GP systems healthy', 'Pharmacy dependency degraded'],
@@ -545,7 +546,7 @@ export const assuranceItems: IconCopy[] = [
     icon: CheckCircle2
   },
   {
-    title: 'Human-approved AI',
+    title: 'Human-approved assistance',
     copy: 'Assistance is optional, evidence-backed, explainable, and logged.',
     icon: Sparkles
   }
@@ -701,7 +702,7 @@ export const officialReferences = [
 export const contactIntents = [
   'Book a walkthrough',
   'Discuss primary-care demand',
-  'Review NHS App readiness',
+  'Discuss NHS App-ready journeys',
   'Talk about security and assurance',
   'Other'
 ] as const;

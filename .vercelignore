@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env*.local
+.next/
+node_modules/
+coverage/
+dist/
+tmp/
+*.tsbuildinfo
+*.log
+npm-debug.log*
+
+.playwright-cli/
+.playwright-mcp/
+output/
+intelligence-scroll-journey-desktop.png

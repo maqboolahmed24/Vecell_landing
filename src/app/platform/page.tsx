@@ -1,51 +1,81 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Activity,
   ArrowRight,
   BarChart3,
-  CalendarDays,
   CheckCircle2,
-  FileText,
   Globe,
+  HeartPulse,
+  LockKeyhole,
   Mail,
+  MessageSquareText,
   PhoneCall,
   Pill,
   RefreshCw,
   Route,
   Smartphone,
-  Stethoscope
+  Stethoscope,
+  UsersRound
 } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 
 const intakePanels = [
   {
     title: 'Web Forms',
-    copy: 'Intelligent, branch-logic questionnaires embedded securely in your practice website.',
+    copy: 'Structured branch-logic questionnaires configured for practice websites and request capture.',
     icon: Globe,
     tone: 'primary'
   },
   {
-    title: 'Telephony API',
-    copy: 'Automated transcription and structural extraction from patient voicemails or active calls.',
+    title: 'Phone capture',
+    copy: 'Phone and IVR demand can be captured into the same evidence and review workflow.',
     icon: PhoneCall,
     tone: 'neutral'
   },
   {
-    title: 'NHS App Integration',
-    copy: 'Direct, authenticated patient requests flowing straight into the operational queue.',
+    title: 'NHS App-ready journeys',
+    copy: 'A pathway model for authenticated patient entry when local integration approvals are in place.',
     icon: Smartphone,
     tone: 'primary'
   }
 ] as const;
 
-const missionSurfaces = [
-  { title: 'Clinical Triage', copy: 'High-density medical review.', icon: Stethoscope },
-  { title: 'Care Navigation', copy: 'Admin scheduling and routing.', icon: CalendarDays },
-  { title: 'Pharmacy', copy: 'Medication request management.', icon: Pill },
-  { title: 'Document Processing', copy: 'Incoming letter extraction.', icon: FileText },
-  { title: 'Long-term Conditions', copy: 'Chronic disease monitoring.', icon: Activity },
-  { title: 'Command Center', copy: 'Practice-wide analytics.', icon: BarChart3 }
+const platformSurfaces = [
+  {
+    title: 'Patient Portal',
+    copy: 'A simple patient-facing place for requests, status updates, appointments, messages and the next safe action.',
+    icon: HeartPulse
+  },
+  {
+    title: 'Clinical Workspace',
+    copy: 'A clinician and reviewer workspace for triage, evidence review, decisions, messages, booking and handoff.',
+    icon: Stethoscope
+  },
+  {
+    title: 'Pharmacy Console',
+    copy: 'A pharmacy-facing surface for consent, eligibility, referral review, dispatch and outcome recording.',
+    icon: Pill
+  },
+  {
+    title: 'Operations Console',
+    copy: 'A leadership view for queue pressure, capacity, site performance, dependency health and assurance.',
+    icon: BarChart3
+  },
+  {
+    title: 'Hub Desk',
+    copy: 'A PCN and hub team workspace for cross-site routing, local capacity and return-to-practice visibility.',
+    icon: UsersRound
+  },
+  {
+    title: 'Support Desk',
+    copy: 'A controlled admin surface for patient enquiries, delivery repair, masked context and safe escalation.',
+    icon: MessageSquareText
+  },
+  {
+    title: 'Governance & Admin',
+    copy: 'A platform control area for roles, policies, audit exports, configuration, approvals and release control.',
+    icon: LockKeyhole
+  }
 ] as const;
 
 export const metadata = {
@@ -62,8 +92,8 @@ export default function PlatformPage() {
             <span className="kicker">The Operating Layer</span>
             <h1>The infrastructure for demand orchestration.</h1>
             <p className="lead">
-              Capture every request. Route with safety. A FHIR-native engine built to ingest
-              multi-channel demand, apply rigorous clinical logic, and direct load to the optimal
+              Capture every request. Route with safety. A FHIR-aware operating layer built to
+              structure multi-channel demand, apply governed rules, and direct work to the right
               operational surface.
             </p>
             <div className="hero-actions">
@@ -83,12 +113,12 @@ export default function PlatformPage() {
             />
             <div className="metric-float" aria-hidden="true">
               <div className="metric-pill">
-                <span>Throughput /s</span>
-                <strong>2,048</strong>
+                <span>Lineage</span>
+                <strong>Traceable</strong>
               </div>
               <div className="metric-pill">
-                <span>Safety Status</span>
-                <strong>Secure</strong>
+                <span>Safety posture</span>
+                <strong>Review gated</strong>
               </div>
             </div>
           </Reveal>
@@ -123,18 +153,18 @@ export default function PlatformPage() {
           <Reveal className="hero-copy">
             <h2>The Routing Engine</h2>
             <p>
-              Every incoming request is parsed, coded, and evaluated against clinical safety
+              Every incoming request is structured, safety-screened, and evaluated against clinical
               thresholds. The engine then routes the demand to the correct operational surface,
-              ensuring right-place, right-time care delivery.
+              keeping the next action clear, reviewable, and owned.
             </p>
             <ul className="check-list">
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
-                FHIR r4 Native Architecture
+                FHIR-aligned exchange pathway
               </li>
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
-                Real-time SNOMED CT coding
+                Terminology mapping support
               </li>
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
@@ -157,7 +187,7 @@ export default function PlatformPage() {
             <div className="route-output">
               <div className="route-destination">
                 <span className="metric-label">Destination: Clinical</span>
-                <strong>Dr. Sarah Jenkins</strong>
+                <strong>Clinical Workspace</strong>
               </div>
               <div className="route-destination inactive">
                 <span className="metric-label">Destination: Admin</span>
@@ -171,14 +201,14 @@ export default function PlatformPage() {
       <section className="scroll-panel scroll-band-muted">
         <div className="section-frame">
           <Reveal className="section-title center">
-            <h2>Six Mission Surfaces</h2>
+            <h2>Platforms we offer</h2>
             <p>
-              Specific interfaces for specific roles. Clean, focused operational views derived from
-              the central routing engine.
+              Vecell is delivered as role-specific interfaces on one operating layer, so every team
+              sees the work, evidence and controls they need.
             </p>
           </Reveal>
           <div className="surface-grid">
-            {missionSurfaces.map((surface, index) => {
+            {platformSurfaces.map((surface, index) => {
               const Icon = surface.icon;
 
               return (

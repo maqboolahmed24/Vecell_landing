@@ -1,24 +1,38 @@
 import type { Metadata } from 'next';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { ScrollJourney } from '@/components/ScrollJourney';
 import { configuredSiteUrl, fallbackLocalSiteUrl } from '@/lib/site-url';
 import './globals.css';
 
 const socialImage = '/illustrations/vecell-platform-pipeline.png';
 const siteUrl = configuredSiteUrl() ?? fallbackLocalSiteUrl();
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+  display: 'swap'
+});
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vecell | The operating layer for primary care',
+    default: 'Vecell | The front door operating system for GP practices',
     template: '%s | Vecell'
   },
   description:
-    'Vecell is the operating layer for primary care: one front door, one live view, and every request routed safely.',
+    'Vecell brings web, phone, booking, pharmacy and admin demand into one governed primary care workflow.',
   openGraph: {
     title: 'Vecell',
     description:
-      'The operating layer for primary care: one front door, one live view, and every request routed safely.',
+      'The front door operating system for GP practices: one safe workflow for patient demand, routing, ownership and proof.',
     url: '/',
     siteName: 'Vecell',
     images: [{ url: socialImage, width: 512, height: 512 }],
@@ -29,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vecell',
     description:
-      'The operating layer for primary care: one front door, one live view, and every request routed safely.',
+      'The front door operating system for GP practices: one safe workflow for patient demand, routing, ownership and proof.',
     images: [socialImage]
   }
 };
@@ -37,8 +51,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GB" data-scroll-behavior="smooth">
-      <body>
+      <body className={`${inter.variable} ${jetBrainsMono.variable}`}>
         <Header />
+        <ScrollJourney />
         {children}
         <Footer />
       </body>

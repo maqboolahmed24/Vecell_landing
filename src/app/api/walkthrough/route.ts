@@ -12,6 +12,8 @@ import {
   readSubmissionJson,
   validateLead
 } from '@/lib/submissions';
+import { responseHeaders } from '@/lib/response-headers';
+import { notifyLeadSubmission } from '@/lib/lead-notifications';
 
 export async function POST(request: Request) {
   try {
@@ -24,18 +26,20 @@ export async function POST(request: Request) {
     const existing = await findExistingLeadByKey('walkthrough', lead.idempotencyKey);
 
     if (existing) {
-      return NextResponse.json(leadResponse(existing), { status: 200 });
+      return NextResponse.json(leadResponse(existing), { status: 200, headers: responseHeaders() });
     }
 
     assertSubmissionAllowed(clientFingerprint(request.headers));
-    const record = await persistLead(lead, 'walkthrough', request.headers.get('user-agent') ?? 'unknown');
+    const record = await persistLead(lead, 'walkthrough', request.headers.get('user-agent') ?? 'unknown', {
+      beforePersist: notifyLeadSubmission
+    });
 
-    return NextResponse.json(leadResponse(record), { status: 201 });
+    return NextResponse.json(leadResponse(record), { status: 201, headers: responseHeaders() });
   } catch (error) {
     const body = errorResponse(error);
     return NextResponse.json(body, {
       status: errorStatus(error),
-      headers: errorHeaders(error)
+      headers: responseHeaders(errorHeaders(error))
     });
   }
 }

@@ -1,8 +1,9 @@
 import { HomeScrollJourney } from '@/components/HomeScrollJourney';
 
 export const metadata = {
-  title: 'The operating layer for primary care',
-  description: 'One front door. One live view. Every request routed safely.'
+  title: 'The front door operating system for GP practices',
+  description:
+    'Vecell brings web, phone, booking, pharmacy and admin demand into one governed primary care workflow.'
 };
 
 export default function HomePage() {

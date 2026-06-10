@@ -13,12 +13,12 @@ export function Footer() {
       </div>
       <div className="footer-grid">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} prefetch={false}>
             {item.label}
           </Link>
         ))}
         {legalPages.map((item) => (
-          <Link key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href} prefetch={false}>
             {item.label}
           </Link>
         ))}

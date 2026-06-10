@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { ArrowRight, BarChart3, CheckCircle2, FlaskConical, Network, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle2, FlaskConical, TrendingUp } from 'lucide-react';
 import { ContactForm } from '@/components/ContactForm';
+import { ContactIllustration } from '@/components/ContactIllustration';
 import { Reveal } from '@/components/Reveal';
 
 export const metadata = {
@@ -14,11 +15,11 @@ export default function PilotPage() {
       <section className="scroll-panel scroll-band-surface">
         <div className="page-frame pilot-hero">
           <Reveal className="hero-copy">
-            <span className="chip">Pilot Program Active</span>
+            <span className="chip">Focused pilots</span>
             <h1>Build the front door primary care deserves.</h1>
             <p className="lead">
-              Transform your GP practice or PCN operations. Deploy high-signal workflows with surgical
-              precision. Prove the pathway, then scale with confidence across your network.
+              Start with one GP practice or PCN pathway. Map demand, test the operating flow, and
+              build the evidence needed for a wider rollout decision.
             </p>
             <div className="hero-actions">
               <Link className="button button-blue" href="#contact">
@@ -33,28 +34,7 @@ export default function PilotPage() {
           </Reveal>
 
           <Reveal className="pilot-visual" delay={0.12}>
-            <div className="pilot-visual-card" aria-hidden="true">
-              <div className="pilot-line short" />
-              <div className="pilot-item">
-                <span className="pilot-item-icon">
-                  <Network size={24} />
-                </span>
-                <div>
-                  <div className="pilot-line" />
-                  <div className="pilot-line short" />
-                </div>
-              </div>
-              <div className="pilot-line" />
-              <div className="pilot-item">
-                <span className="pilot-item-icon">
-                  <BarChart3 size={24} />
-                </span>
-                <div>
-                  <div className="pilot-line" />
-                  <div className="pilot-line short" />
-                </div>
-              </div>
-            </div>
+            <ContactIllustration />
           </Reveal>
         </div>
       </section>
@@ -63,7 +43,7 @@ export default function PilotPage() {
         <div className="section-frame">
           <Reveal className="section-title">
             <h2>The Pilot Methodology</h2>
-            <p>A disciplined approach to integrating Vecell into your existing clinical pathways.</p>
+            <p>A disciplined approach to evaluating Vecell inside existing primary-care pathways.</p>
           </Reveal>
           <div className="method-grid">
             <Reveal className="method-tile">
@@ -74,20 +54,19 @@ export default function PilotPage() {
                 </div>
                 <h3>Prove the pathway</h3>
                 <p>
-                  We establish a controlled baseline within a single practice or targeted patient
-                  cohort. By instrumenting key friction points, we gather high-fidelity data on time
-                  saved and triage accuracy.
+                  We establish a controlled baseline within a single practice or focused pathway.
+                  The pilot measures demand, routing time, handoffs, ownership, and evidence quality.
                 </p>
               </div>
               <div className="method-footer">
                 <div>
                   <span className="phase-label">Metric A</span>
-                  <strong>Triage Velocity</strong>
+                  <strong>Routing Time</strong>
                 </div>
                 <span aria-hidden="true" />
                 <div>
                   <span className="phase-label">Metric B</span>
-                  <strong>Routing Accuracy</strong>
+                  <strong>Evidence Quality</strong>
                 </div>
               </div>
             </Reveal>
@@ -100,9 +79,8 @@ export default function PilotPage() {
                 </div>
                 <h3>Scale with confidence</h3>
                 <p>
-                  Once the pathway is verified and operational ROI is confirmed, we provide the
-                  architectural blueprint to deploy across your entire Primary Care Network
-                  seamlessly.
+                  Once the pathway is understood and the operating case is clear, the next stage can
+                  plan rollout across a wider Primary Care Network or group.
                 </p>
               </div>
               <div>
@@ -125,20 +103,20 @@ export default function PilotPage() {
             <h2>Initiate a pilot.</h2>
             <p>
               Provide your operational details. Our technical team will prepare a custom pilot pack
-              outlining integration steps, resource requirements, and projected timelines for your PCN.
+              outlining pathway scope, resource requirements, and realistic timelines for your PCN.
             </p>
             <ul className="check-list">
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
-                Direct technical consultation
+                Direct product consultation
               </li>
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
-                Custom pathway architecture
+                Pathway mapping
               </li>
               <li>
                 <CheckCircle2 aria-hidden="true" size={16} />
-                Full operational support
+                Implementation support
               </li>
             </ul>
           </Reveal>

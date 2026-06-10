@@ -9,7 +9,7 @@ function completeRequiredFields() {
   fireEvent.change(screen.getByLabelText('Professional email'), {
     target: { value: 'sarah@example.nhs.uk' }
   });
-  fireEvent.change(screen.getByLabelText('Organization / PCN name'), {
+  fireEvent.change(screen.getByLabelText('Organisation / PCN name'), {
     target: { value: 'North Hub PCN' }
   });
   fireEvent.change(screen.getByLabelText('Message'), {

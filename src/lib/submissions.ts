@@ -57,6 +57,10 @@ export interface LeadRecord extends Lead {
   userAgent: string;
 }
 
+interface PersistLeadOptions {
+  beforePersist?: (record: LeadRecord) => Promise<void>;
+}
+
 export class SubmissionRequestError extends Error {
   constructor(
     message: string,
@@ -116,7 +120,12 @@ export async function findExistingLeadByKey(source: LeadRecord['source'], idempo
   return findExistingLead(submissionStorePath(), source, idempotencyKey);
 }
 
-export async function persistLead(input: Lead, source: LeadRecord['source'], userAgent: string): Promise<LeadRecord> {
+export async function persistLead(
+  input: Lead,
+  source: LeadRecord['source'],
+  userAgent: string,
+  options: PersistLeadOptions = {}
+): Promise<LeadRecord> {
   const storePath = submissionStorePath();
 
   return withPersistenceLock(async () => {
@@ -134,6 +143,7 @@ export async function persistLead(input: Lead, source: LeadRecord['source'], use
       userAgent: userAgent.slice(0, 500)
     };
 
+    await options.beforePersist?.(record);
     await mkdir(dirname(storePath), { recursive: true });
     await appendFile(storePath, `${JSON.stringify(record)}\n`, 'utf8');
 

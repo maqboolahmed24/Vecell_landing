@@ -1,5 +1,6 @@
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ContactForm } from '@/components/ContactForm';
+import { ContactIllustration } from '@/components/ContactIllustration';
 import { Reveal } from '@/components/Reveal';
 import { officialReferences } from '@/content/site';
 
@@ -21,7 +22,8 @@ export default function ContactPage() {
               with the right walkthrough path for your team.
             </p>
           </Reveal>
-          <Reveal delay={0.12}>
+          <Reveal className="contact-form-column" delay={0.12}>
+            <ContactIllustration />
             <ContactForm />
           </Reveal>
         </div>

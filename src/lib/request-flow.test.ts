@@ -31,7 +31,7 @@ describe('requestFlowPayload', () => {
     expect(payload.requestPassport.map((field) => field.label)).toContain('Audit proof');
     expect(payload.integrationChain).toContainEqual(expect.objectContaining({
       title: 'FHIR boundary',
-      items: expect.arrayContaining(['FHIR API'])
+      items: expect.arrayContaining(['FHIR-aligned exchange'])
     }));
     expect(payload.assuranceLedger.graph.map((node) => node.label)).toEqual([
       'Lineage',

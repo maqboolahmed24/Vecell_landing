@@ -8,18 +8,18 @@ vi.mock('next/image', () => ({
 }));
 
 describe('HomePage', () => {
-  it('renders the operating-layer positioning and wired CTAs', () => {
+  it('renders the GP practice positioning and wired CTAs', () => {
     const { container } = render(<HomePage />);
 
-    expect(screen.getByRole('heading', { name: /The operating layer for primary care/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /The front door for GP practice demand/i })).toBeInTheDocument();
     expect(container.querySelector('.home-hero-media img')).toHaveAttribute(
       'src',
       '/illustrations/vecell-platform-orchestration-hero.png'
     );
-    expect(screen.getByText(/One front door\. One live view/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/Demand is fragmented/i).length).toBeGreaterThan(0);
-    expect(screen.getByText(/Build the front door primary care deserves/i)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /See the flow/i })).toHaveAttribute(
+    expect(screen.getByText(/web forms, phone calls, NHS App-ready journeys/i)).toBeInTheDocument();
+    expect(screen.getByText(/GP demand is spread across forms, phones and queues/i)).toBeInTheDocument();
+    expect(screen.getByText(/A scalable operating layer for modern primary care/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /See how it works/i })).toHaveAttribute(
       'href',
       '/workflows'
     );

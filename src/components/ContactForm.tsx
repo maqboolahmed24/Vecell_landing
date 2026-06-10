@@ -94,7 +94,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       </div>
       <div className="field-grid">
         <label htmlFor={compact ? 'pilot-organisation' : 'contact-organisation'}>
-          Organization / PCN name
+          Organisation / PCN name
           <input
             id={compact ? 'pilot-organisation' : 'contact-organisation'}
             name="organisation"

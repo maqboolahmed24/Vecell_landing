@@ -8,6 +8,7 @@ const routes = [
   '',
   '/platform',
   '/workflows',
+  '/intelligence',
   '/assurance',
   '/pilot',
   '/contact',
