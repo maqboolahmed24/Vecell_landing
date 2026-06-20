@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/Logo';
 import { legalPages, navItems } from '@/content/site';
 
-const defaultTestPortalsUrl = 'https://vecells-cloud-trial-portals.onrender.com/test';
+const defaultTestPortalsUrl = 'https://vecell.onrender.com/test';
 
 export function Footer() {
   const testPortalsUrl = process.env.NEXT_PUBLIC_TEST_PORTALS_URL ?? defaultTestPortalsUrl;

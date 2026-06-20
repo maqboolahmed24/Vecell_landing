@@ -13,7 +13,7 @@ describe('Footer', () => {
 
     expect(screen.getByRole('link', { name: /Test portals/i })).toHaveAttribute(
       'href',
-      'https://vecells-cloud-trial-portals.onrender.com/test'
+      'https://vecell.onrender.com/test'
     );
   });
 });
