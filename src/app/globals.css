@@ -338,6 +338,12 @@ main {
   line-height: 1.5;
 }
 
+.footer-test-link {
+  width: fit-content;
+  min-height: 44px;
+  padding-inline: 18px;
+}
+
 .footer-grid {
   display: flex;
   flex-wrap: wrap;
